@@ -153,7 +153,7 @@ class Product
   attr_reader :name, :price, :promotion
 
   def initialize(name, price, promotion)
-    unless name.length <= 40 and price >= 0.01 and price <= 999.99
+    unless name.length <= 40 and (0.01..999.99) === price
       raise "Invalid parameters"
     end
     @name      = name
